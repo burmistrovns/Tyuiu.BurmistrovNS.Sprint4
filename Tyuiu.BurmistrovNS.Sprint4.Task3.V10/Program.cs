@@ -1,40 +1,51 @@
-﻿using Tyuiu.BurmistrovNS.Sprint4.Task2.V22.Lib;
-namespace Tyuiu.BurmistrovNS.Sprint4.Task2.V22
+﻿using Tyuiu.BurmistrovNS.Sprint4.Task3.V10.Lib;
+namespace Tyuiu.BurmistrovNS.Sprint4.Task3.V10
 {
     class Programm
     {
         static void Main(string[] args)
         {
-            Random rnd = new Random();
+            
             DataService ds = new DataService();
+
+            int[,] a = {
+                            { 5, 7, 6, 6, 5 },
+                            { 5, 5, 5, 4, 6 },
+                            { 8, 5, 7, 4, 7 },
+                            { 7, 6, 7, 4, 7 },
+                            { 5, 8, 7, 8, 8 } };
+
+            int str = a.GetUpperBound(0) + 1;
+            int stb = a.Length / str;
 
             Console.WriteLine("***************************************************************************");
             Console.WriteLine("* ИСХОДНЫЕ ДАННЫЕ:                                                               *");
             Console.WriteLine("***************************************************************************");
 
-            int len;
-            Console.WriteLine("Введите количество элементов массива:");
-            len = Convert.ToInt32(Console.ReadLine());
-
-            int[] array = new int[len];
-
-
-            for (int i = 0; i < len; i++)
+            Console.WriteLine("Массив: ");
+            for (int i = 0; i < str; i++)
             {
-                array[i] = rnd.Next(1, 7);
+                for (int j = 0; j < stb; j++)
+                {
+                    Console.Write($"{a[i, j]} \t");
+                }
+                Console.WriteLine();
+
             }
+
+
             Console.WriteLine();
-            Console.WriteLine("Получившийся массив:");
-            for (int i = 0; i < len; i++)
-            {
-                Console.WriteLine(array[i]);
-            }
+            Console.WriteLine();
+
+            int res = ds.Calculate(a);
 
             Console.WriteLine("***************************************************************************");
             Console.WriteLine("* РЕЗУЛЬТАТ:                                                              *");
             Console.WriteLine("***************************************************************************");
 
-            Console.WriteLine("Произведение нечетных элементов массива = " + ds.Calculate(array));
+            Console.WriteLine(res);
+
+
             Console.ReadKey();
 
         }
