@@ -15,7 +15,7 @@ namespace Tyuiu.BurmistrovNS.Sprint4.Task5.V24.Lib
             {
                 for (int j = 0; j < columns; j++)
                 {
-                    if (matrix[i, j] == 0)
+                    if (matrix[i, j] > 0)
                     {
                         count++;
                     }
